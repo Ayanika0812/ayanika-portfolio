@@ -1,7 +1,7 @@
 import { useRef, useState } from 'react'
 import { useReveal } from '../hooks/useReveal'
 
-const TRACKER_URL = import.meta.env.VITE_TRACKER_URL || 'http://127.0.0.1:8000'
+const TRACKER_URL = import.meta.env.VITE_TRACKER_URL || 'https://ayanika-tracker.onrender.com'
 
 export default function Contact() {
   const ctaRef   = useReveal()
