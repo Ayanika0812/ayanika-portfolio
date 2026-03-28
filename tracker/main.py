@@ -48,9 +48,8 @@ app.add_middleware(
     allow_origins=[
         "http://localhost:5173",
         "http://localhost:4173",
-        "https://*.vercel.app",          # all Vercel preview URLs
-        # add your exact Vercel URL after deploy, e.g.:
-        # "https://ayanika-portfolio.vercel.app",
+        "https://*.vercel.app",
+        # "https://your-exact-vercel-url.vercel.app",  # add after Vercel deploy
     ],
     allow_methods=["POST", "GET"],
     allow_headers=["*"],
