@@ -10,7 +10,9 @@ import Experience  from './components/Experience'
 import Skills      from './components/Skills'
 import Contact     from './components/Contact'
 
-const TRACKER_URL = import.meta.env.VITE_TRACKER_URL || 'https://ayanika-tracker.onrender.com'
+const TRACKER_URL = window.location.hostname === 'localhost'
+  ? 'http://127.0.0.1:8000'
+  : 'https://ayanika-tracker.onrender.com'
 
 export default function App() {
   useEffect(() => {
