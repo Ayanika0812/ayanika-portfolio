@@ -48,11 +48,12 @@ app.add_middleware(
     allow_origins=[
         "http://localhost:5173",
         "http://localhost:4173",
+        "https://ayanika-portfolio.vercel.app",
         "https://*.vercel.app",
-        # "https://your-exact-vercel-url.vercel.app",  # add after Vercel deploy
     ],
-    allow_methods=["POST", "GET"],
+    allow_methods=["POST", "GET", "OPTIONS"],
     allow_headers=["*"],
+    allow_credentials=False,
 )
 
 # ── Models ──────────────────────────────────────────────────
