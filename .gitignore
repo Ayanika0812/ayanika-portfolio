@@ -20,3 +20,4 @@ tracker/.venv/
 # misc
 .DS_Store
 *.log
+DEPLOY.md
