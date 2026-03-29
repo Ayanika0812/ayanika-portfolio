@@ -310,7 +310,7 @@ section { border-bottom: var(--border-thick); }
 .form-success.show { display: block; }
 
 /* FOOTER */
-footer { background: var(--black); color: #444; border-top: 2px solid #222; padding: 20px 40px; display: flex; justify-content: space-between; font-family: 'IBM Plex Mono', monospace; font-size: 11px; letter-spacing: 0.1em; text-transform: uppercase; }
+footer { background: var(--black); color: var(--white); border-top: 2px solid #222; padding: 20px 40px; display: flex; justify-content: space-between; font-family: 'IBM Plex Mono', monospace; font-size: 11px; letter-spacing: 0.1em; text-transform: uppercase; }
 
 /* REVEAL */
 .reveal { opacity: 0; transform: translateY(40px); transition: opacity 0.7s cubic-bezier(0.16,1,0.3,1), transform 0.7s cubic-bezier(0.16,1,0.3,1); }

@@ -38,7 +38,7 @@ export default function App() {
       <Contact />
       <footer>
         <span>© 2026 Ayanika Paul</span>
-        <span>Full Stack Developer &amp; AI Engineer</span>
+        <span>Full Stack · ML · AI</span>
       </footer>
     </>
   )

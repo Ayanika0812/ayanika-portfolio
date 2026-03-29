@@ -50,12 +50,12 @@ export default function Contact() {
           <div className="form-row">
             <div className="form-field">
               <label>Your Name</label>
-              <input type="text" placeholder="Jane Smith" required value={name} onChange={e => setName(e.target.value)} />
+              <input type="text" placeholder="Your name" required value={name} onChange={e => setName(e.target.value)} />
               <span className="field-line" />
             </div>
             <div className="form-field">
               <label>Your Email</label>
-              <input type="email" placeholder="jane@example.com" required value={email} onChange={e => setEmail(e.target.value)} />
+              <input type="email" placeholder="your@email.com" required value={email} onChange={e => setEmail(e.target.value)} />
               <span className="field-line" />
             </div>
           </div>
