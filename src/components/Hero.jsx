@@ -83,7 +83,7 @@ export default function Hero() {
           <a href="mailto:contactayanika@gmail.com">Email</a>
         </div>
       </div>
-      <span className="hero-scroll-hint">Scroll ↓</span>
+      <span className="hero-scroll-hint">↓</span>
     </section>
   )
 }
