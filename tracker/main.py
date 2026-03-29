@@ -101,8 +101,9 @@ async def track_visit(request: Request):
         ua = ua_parse(ua_string)
         device  = "mobile" if ua.is_mobile else ("tablet" if ua.is_tablet else "desktop")
         browser = ua.browser.family
+        device_name = ua.device.family if ua.device.family != "Other" else None
     except Exception:
-        device, browser = "unknown", "unknown"
+        device, browser, device_name = "unknown", "unknown", None
 
     geo = await get_geo(ip)
 
@@ -113,16 +114,17 @@ async def track_visit(request: Request):
         referrer = request.headers.get("referer", "direct")
 
     record = {
-        "ip":         ip,
-        "country":    geo["country"],
-        "city":       geo["city"],
-        "region":     geo["region"],
-        "lat":        geo["lat"],
-        "lon":        geo["lon"],
-        "device":     device,
-        "browser":    browser,
-        "referrer":   referrer,
-        "visited_at": datetime.now(timezone.utc).isoformat(),
+        "ip":          ip,
+        "country":     geo["country"],
+        "city":        geo["city"],
+        "region":      geo["region"],
+        "lat":         geo["lat"],
+        "lon":         geo["lon"],
+        "device":      device,
+        "device_name": device_name,
+        "browser":     browser,
+        "referrer":    referrer,
+        "visited_at":  datetime.now(timezone.utc).isoformat(),
     }
 
     supabase.table("visits").insert(record).execute()
@@ -281,9 +283,9 @@ tr:hover td{background:rgba(255,255,0,.03);}
   </div>
   <table><thead><tr>
     <th>#</th><th>Time</th><th>Country</th><th>State / Region</th><th>City</th>
-    <th>Device</th><th>Browser</th><th>Referrer</th><th>Type</th>
+    <th>Device</th><th>Device Name</th><th>Browser</th><th>Referrer</th><th>Type</th>
   </tr></thead>
-  <tbody id="visitsBody"><tr><td colspan="9" class="empty">Loading...</td></tr></tbody></table>
+  <tbody id="visitsBody"><tr><td colspan="10" class="empty">Loading...</td></tr></tbody></table>
 </div>
 
 <div class="panel" id="panel-messages">
@@ -359,6 +361,7 @@ function renderVisits() {
           <td>${v.region||'—'}</td>
           <td>${v.city||'—'}</td>
           <td><span class="badge ${v.device}">${v.device||'—'}</span></td>
+          <td>${v.device_name||'—'}</td>
           <td>${v.browser||'—'}</td>
           <td style="max-width:180px;overflow:hidden;text-overflow:ellipsis">${v.referrer||'direct'}</td>
           <td>${isRepeat ? `<span class="badge" style="border-color:#f59e0b;color:#f59e0b;">${ipCount[v.ip]}x</span>` : '<span class="unique-badge">new</span>'}</td>
